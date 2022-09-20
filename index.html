@@ -11,29 +11,44 @@
 </head>
 
 <body>
-    <header>
-        <p class="Highscore">Highscore:</p>
-        <p class="Time-left">Time left:</p>
-    </header>
-    <h1 class="h1">Coding Quiz!</h1>
+    <h1>Coding Quiz</h1>
     <main>
-        <h2 class="h2">Try to answer as many questions correctly before the time runs out!</h2>
+        <p id="timer"></p>
+        <section id="startMessage">
+            <h2 id="startHead">Welcome to the timed coding quiz</h2>
+            <p id="info">Press the start button to begin. Timer starts when you click begin. Good luck!</p>
+            <button id="beginButton">BEGIN</button>
+        </section>
         <form>
-            <h1 id="question">agdsa</h1>
-            <div>
-                <p id="answer1">gdsag</p>
-                <p id="answer2">asf</p>
-                <p id="answer3">asd</p>
-                <p id="answer4">lo</p>
+            <h3 id="question"></h3>
+            <div class="choices" data-place="1">
+                <input type="radio" id="choice1" name="question" value="">
+                <p id="choi1"></p>
             </div>
+            <div class="choices" data-place="2">
+                <input type="radio" id="choice2" name="question" value="">
+                <p id="choi2"></p>
+            </div>
+            <div class="choices" data-place="3">
+                <input type="radio" id="choice3" name="question" value="">
+                <p id="choi3"></p>
+            </div>
+            <div class="choices" data-place="4">
+                <input type="radio" id="choice4" name="question" value="">
+                <p id="choi4"></p>
+            </div>
+            <button id="nextBut">NEXT</button>
+            <p id="Response"></p>
         </form>
-
-
-
-
-
+        <section id="highscore">
+            <h2>Highscores</h2>
+            <ul id="ScoreList">
+            </ul>
+            <button id="clear">Clear</button>
+            <a id="home" href="./index.html">Home</a>
+        </section>
     </main>
-
 </body>
+
 
 </html>
