@@ -17,32 +17,48 @@ const quizRespone = document.querySelector("#Response");
 
 const questions = ["In Gitbash, the command 'Mkdir' does what?", "In CSS, What selector denotes 'class'?", "In HTML, <a> is a ____ tag", "In Javascript, Bracket notation indicates what?"]
 
-const answerChoices = [["What file am I currently in.","Make new directory.", "Change directory.", "Commit to main branch"], ["*", ".","#","{}"], ["Anchor", "Image", "Header", "Button"], ["An array", "A boolean", "A query selector", "A string"]];
+const answerChoices = [["What file am I currently in.", "Make new directory.", "Change directory.", "Commit to main branch"], ["*", ".", "#", "{}"], ["Anchor", "Image", "Header", "Button"], ["An array", "A boolean", "A query selector", "A string"]];
 
 let secondsLeft = 45;
 function setTime() {
     timer.textContent = "Time Remaining: 45 Seconds";
-    let timerInt = setInterval(function(){
+    let timerInt = setInterval(function () {
         secondsLeft = secondsLeft - 1;
         timer.textContent = "Time Remaining: ${secondsLeft} seconds";
 
-        if(secondsLeft <= 10){
+        if (secondsLeft <= 10) {
             timer.style.color = "red";
         }
-        if(secondsLeft === 0){
+        if (secondsLeft === 0) {
             clearInterval(timerInt);
             scrollIndex = 0;
             questionForm.style.display = "none";
-            startHead.textContent ="You have run out of time!";
+            startHead.textContent = "You have run out of time!";
             document.querySelector("#info").textContent = "Click BEGIN to try again";
             startMessage.style.display = "inherit";
             secondsLeft = 30;
             scoreMod = 0;
-            timer.style.color ="grey";
+            timer.style.color = "grey";
         }
-        if(scrollIndex === 6)
-        clearInterval(timerInt);
+        if (scrollIndex === 6)
+            clearInterval(timerInt);
         timer.textContent = "";
-    })
+    }, 1000);
+}
+
+let scrollIndex = 0;
+let finalScore = 0;
+function questionScroll() {
+    if (scrollIndex < 4) {
+        question.textContent = [scrollIndex];
+        choi1.textContent = (answerChoices[scrollIndex][0])
+        choi2.textContent = (answerChoices[scrollIndex][1])
+        choi3.textContent = (answerChoices[scrollIndex][2])
+        choi4.textContent = (answerChoices[scrollIndex][3])
+        choice1.value = answerChoices[scrollIndex][0]
+        choice2.value = answerChoices[scrollIndex][1]
+        choice3.value = answerChoices[scrollIndex][2]
+        choice4.value = answerChoices[scrollIndex][3]
+    }
 }
 
